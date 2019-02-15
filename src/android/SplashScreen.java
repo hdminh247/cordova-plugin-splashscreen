@@ -336,18 +336,18 @@ public class SplashScreen extends CordovaPlugin {
                 }
                 String navigationBarColor = preferences.getString("SplashNavigationBarBackgroundColor", "#000000");
 
-                if (navigationBarColor != null && !navigationBarColor.isEmpty() && Build.VERSION.SDK_INT >= 19) {
+                //if (navigationBarColor != null && !navigationBarColor.isEmpty() && Build.VERSION.SDK_INT >= 19) {
 
-                    splashWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-                    splashWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    try {
+                    //splashWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                    //splashWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    //try {
                         // Using reflection makes sure any 5.0+ device will work without having to compile with SDK level 21
-                        splashWindow.getClass().getDeclaredMethod("setNavigationBarColor", int.class).invoke(splashWindow, Color.parseColor(navigationBarColor));
-                    } catch (Exception ignore) {
+                        //splashWindow.getClass().getDeclaredMethod("setNavigationBarColor", int.class).invoke(splashWindow, Color.parseColor(navigationBarColor));
+                    //} catch (Exception ignore) {
                         // this should not happen, only in case Android removes this method in a version > 21
-                        LOG.w("SplashScreen StatusBarColor", "Method window.setNavigationBarColor not found for SDK level " + Build.VERSION.SDK_INT);
-                    }
-                }
+                        //LOG.w("SplashScreen StatusBarColor", "Method window.setNavigationBarColor not found for SDK level " + Build.VERSION.SDK_INT);
+                    //}
+                //}
 
 
                 splashDialog.setContentView(splashImageView);
